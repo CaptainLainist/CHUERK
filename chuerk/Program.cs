@@ -24,6 +24,9 @@ namespace chuerk
                 string path = Directory.GetCurrentDirectory();
                 string[] files = Directory.GetFiles(path, args[0]);
 
+                if (files.Length == 0) {
+                    Console.WriteLine("No files found");
+                }
                 foreach (string f in files) {
                     Shredder(f);
                     File.Delete(f);

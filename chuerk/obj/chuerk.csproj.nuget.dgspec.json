@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\chuerk\\chuerk\\chuerk\\chuerk.csproj": {}
+    "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj": {}
   },
   "projects": {
-    "D:\\chuerk\\chuerk\\chuerk\\chuerk.csproj": {
+    "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\chuerk\\chuerk\\chuerk\\chuerk.csproj",
+        "projectUniqueName": "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj",
         "projectName": "chuerk",
-        "projectPath": "D:\\chuerk\\chuerk\\chuerk\\chuerk.csproj",
+        "projectPath": "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj",
         "packagesPath": "C:\\Users\\nekro\\.nuget\\packages\\",
-        "outputPath": "D:\\chuerk\\chuerk\\chuerk\\obj\\",
+        "outputPath": "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nekro\\AppData\\Roaming\\NuGet\\NuGet.Config",
