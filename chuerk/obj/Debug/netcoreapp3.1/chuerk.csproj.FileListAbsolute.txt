@@ -1,0 +1,13 @@
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.exe
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.deps.json
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.runtimeconfig.json
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.runtimeconfig.dev.json
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.dll
+D:\chuerk\chuerk\chuerk\bin\Debug\netcoreapp3.1\chuerk.pdb
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.GeneratedMSBuildEditorConfig.editorconfig
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.AssemblyInfoInputs.cache
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.AssemblyInfo.cs
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.csproj.CoreCompileInputs.cache
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.dll
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.pdb
+D:\chuerk\chuerk\chuerk\obj\Debug\netcoreapp3.1\chuerk.genruntimeconfig.cache
