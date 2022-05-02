@@ -10,28 +10,40 @@ namespace chuerk
 
             Console.WriteLine("CHUERK  ---  A simple file shredder for Windows");
 
-            //recursive delete
-            if (args[0].Equals("-r"))
+            if (args.Length > 0 && args.Length < 3)
             {
-                RecursiveDelete(new DirectoryInfo(args[1]));
-            } else if(args[0].Equals("-h")) {
 
+                //recursive delete
+                if (args[0].Equals("-r"))
+                {
+                    RecursiveDelete(new DirectoryInfo(args[1]));
+                }
+                else if (args[0].Equals("-h"))
+                {
+
+                    Console.Write("Chuerk help manual\n chuerk <args> <folder or file> \n -r <folder>: Recursively shred folders and files \n -h show help file\n");
+
+                }
+                //non recursive delete
+                else
+                {
+                    string path = Directory.GetCurrentDirectory();
+                    string[] files = Directory.GetFiles(path, args[0]);
+
+                    if (files.Length == 0)
+                    {
+                        Console.WriteLine("No files found");
+                    }
+                    foreach (string f in files)
+                    {
+                        Shredder(f);
+                        File.Delete(f);
+                        Console.WriteLine("{0} --- Done", f);
+                    }
+                }
+            } else
+            {
                 Console.Write("Chuerk help manual\n chuerk <args> <folder or file> \n -r <folder>: Recursively shred folders and files \n -h show help file\n");
-                
-            }
-            //non recursive delete
-            else {
-                string path = Directory.GetCurrentDirectory();
-                string[] files = Directory.GetFiles(path, args[0]);
-
-                if (files.Length == 0) {
-                    Console.WriteLine("No files found");
-                }
-                foreach (string f in files) {
-                    Shredder(f);
-                    File.Delete(f);
-                    Console.WriteLine("{0} --- Done", f);
-                }
             }
         }
 
