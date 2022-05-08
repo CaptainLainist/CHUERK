@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace chuerk
 {
@@ -37,8 +38,7 @@ namespace chuerk
                     foreach (string f in files)
                     {
                         Shredder(f);
-                        File.Delete(f);
-                        Console.WriteLine("{0} --- Done", f);
+                        
                     }
                 }
             } else
@@ -49,24 +49,33 @@ namespace chuerk
 
         //shredding the file
         private static void Shredder(string file) {
-            if (File.Exists(file)) {
+            if (File.Exists(file))
+            {
                 FileInfo fi = new FileInfo(file);
-                string chars = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
-                Random rand = new Random();
-   
-                string characters = "";
-                for (int i = 0; i < fi.Length; i++) {
-                        
-                    characters += chars[rand.Next(chars.Length)].ToString();
-                        
-                }
-                File.WriteAllText(file, characters);
+                if (fi.Length <= 536870912) //512 MB
+                {
 
+                    File.WriteAllText(file, String.Concat(Enumerable.Repeat("c", (int)fi.Length)));
+                    File.Delete(file);
+                    Console.WriteLine("{0} --- Done", file);
+                }
+                else {
+                    Console.WriteLine("{0} --- File's too big, it has to be lower or equal to 512MB", file);
+                }
+
+            }
+            else {
+                Console.WriteLine("{0} --- File doesn't exist", file);
             }
         }
 
+        public static bool IsDirectoryEmpty(string path)
+        {
+            return !Directory.EnumerateFileSystemEntries(path).Any();
+        }
+
         //recursive delete
-         private static void RecursiveDelete(DirectoryInfo baseDir)
+        private static void RecursiveDelete(DirectoryInfo baseDir)
          {
             if (!baseDir.Exists)
             {
@@ -76,7 +85,6 @@ namespace chuerk
 
             foreach (FileInfo file in baseDir.GetFiles()) {
                 Shredder(file.FullName);
-                Console.WriteLine("{0} --- Done", file.Name);
             }
 
             foreach (var dir in baseDir.EnumerateDirectories())
@@ -84,7 +92,10 @@ namespace chuerk
                 
                 RecursiveDelete(dir);
             }
-            baseDir.Delete(true);
+            if (IsDirectoryEmpty(baseDir.FullName))
+            {
+                baseDir.Delete(true);
+            }
          }
     }
 }
