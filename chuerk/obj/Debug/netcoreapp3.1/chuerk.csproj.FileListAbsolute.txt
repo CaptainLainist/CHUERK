@@ -24,3 +24,4 @@ D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Debug\netcoreapp3.1\chuerk.csproj.CoreComp
 D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Debug\netcoreapp3.1\chuerk.dll
 D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Debug\netcoreapp3.1\chuerk.pdb
 D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Debug\netcoreapp3.1\chuerk.genruntimeconfig.cache
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Debug\netcoreapp3.1\chuerk.csproj.AssemblyReference.cache
