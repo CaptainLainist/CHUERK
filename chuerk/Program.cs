@@ -66,6 +66,8 @@ namespace chuerk
                 byte[] MB = new byte[1024 * 1024];
 
 
+
+
                 try
                 {
                     File.WriteAllText(file, String.Concat(Enumerable.Repeat("c", (int)fi.Length)));
@@ -75,7 +77,7 @@ namespace chuerk
 
                 }
                 catch (ArgumentOutOfRangeException e) {
-                    Console.WriteLine("{0} --- File's Too big, it will shred part by part...");
+                    Console.WriteLine("{0} --- File's Too big, it will shred part by part...", file);
 
                     string ces = String.Concat(Enumerable.Repeat("c", (1024 * 1024)));
 

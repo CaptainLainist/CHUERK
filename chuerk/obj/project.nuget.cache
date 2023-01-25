@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "svCI0cLozI/ta9l8oeM+YVDxudoRqLb6fD/gXF83xdUqTvUhg9PJPEdP0qwkxCWEnJd5adSp9PRAjiIFExkeRg==",
+  "dgSpecHash": "p0BviMR9Zr5P194rYsYsinZnCOBJswxytkWKKJV6OqG46eFXdo2co6H1q2hLGVb5MNSuO6rm3CvQWsJAnZsmFw==",
   "success": true,
   "projectFilePath": "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.11\\microsoft.netcore.app.host.win-x64.3.1.11.nupkg.sha512"
+  ],
   "logs": []
 }
