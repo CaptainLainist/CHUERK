@@ -1,7 +1,11 @@
 # CHUERK
+
 A simple file shredder for windows
 
-# Installing
+![alt text](https://raw.githubusercontent.com/CaptainLainist/CHUERK/main/chuerk.png)
+
+# Instalation
+
 Download the software in releases, unzip it and add it to path
 
 # Tutorial
