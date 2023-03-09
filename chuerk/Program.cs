@@ -15,7 +15,18 @@ namespace chuerk
         {
 
 
-            Console.WriteLine("CHUERK v2  ---  A simple file shredder for Windows");
+            ConsoleColor prevcolor = Console.ForegroundColor;
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("   ________                    __");
+            Console.WriteLine("  / ____/ /_  __  _____  _____/ /__");
+            Console.WriteLine(" / /   / __ \\/ / / / _ \\/ ___/ //_/");
+            Console.WriteLine("/ /___/ / / / /_/ /  __/ /  / ,<");
+            Console.WriteLine("\\____/_/ /_/\\__,_/\\___/_/  /_/|_|\n");
+
+            Console.ForegroundColor = prevcolor;
+
+            Console.WriteLine("CHUERK v2.0.2  ---  A simple file shredder for Windows by CaptainLainist");
 
 
             if (args.Length > 0 && args.Length < 3)
@@ -24,7 +35,17 @@ namespace chuerk
                 //recursive delete
                 if (args[0].Equals("-r"))
                 {
-                    RecursiveDelete(new DirectoryInfo(args[1]));
+
+                    try
+                    {
+                        RecursiveDelete(new DirectoryInfo(args[1]));
+                    }
+                    catch (System.IO.IOException)
+                    {
+
+                        Console.WriteLine("{0} --- directory is being used by another process", args[1]);
+                    }
+                    
                 }
                 else if (args[0].Equals("-h"))
                 {
@@ -35,18 +56,28 @@ namespace chuerk
                 //non recursive delete
                 else
                 {
-                    string path = Directory.GetCurrentDirectory();
-                    string[] files = Directory.GetFiles(path, args[0]);
 
-                    if (files.Length == 0)
+                    try
                     {
-                        Console.WriteLine("No files found");
+                        string path = Directory.GetCurrentDirectory();
+                        string[] files = Directory.GetFiles(path, args[0]);
+
+                        if (files.Length == 0)
+                        {
+                            Console.WriteLine("No files found");
+                        }
+                        foreach (string f in files)
+                        {
+                            Shredder(f);
+
+                        }
                     }
-                    foreach (string f in files)
+                    catch (System.IO.IOException)
                     {
-                        Shredder(f);
-                        
+
+                        Console.WriteLine("{0} --- ERROR: file is being used by another process", args[0]);
                     }
+                   
                 }
             } else
             {
@@ -98,7 +129,7 @@ namespace chuerk
 
             }
             else {
-                Console.WriteLine("{0} --- File doesn't exist", file);
+                Console.WriteLine("{0} --- ERROR: File does not exist", file);
             }
         }
 
@@ -112,7 +143,7 @@ namespace chuerk
          {
             if (!baseDir.Exists)
             {
-                Console.WriteLine("Folder does not exist");
+                Console.WriteLine("{0} --- ERROR: Folder does not exist", baseDir.FullName );
                 return;
             }
 
