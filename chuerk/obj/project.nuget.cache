@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "p0BviMR9Zr5P194rYsYsinZnCOBJswxytkWKKJV6OqG46eFXdo2co6H1q2hLGVb5MNSuO6rm3CvQWsJAnZsmFw==",
+  "dgSpecHash": "YMrRAgAQtYOsovVyZNYmm8S5paJcCcO3OBssKS0EXeqGhAABnBCwCyPKKRAYf8kIpMNCA3UjQxbUdNaoUj+w0A==",
   "success": true,
   "projectFilePath": "D:\\chuerk\\chuerk_gh\\CHUERK\\chuerk\\chuerk.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.11\\microsoft.netcore.app.host.win-x64.3.1.11.nupkg.sha512"
+    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\nekro\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],
   "logs": []
 }

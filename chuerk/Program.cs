@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -9,7 +10,28 @@ namespace chuerk
 
     class Program
     {
-        
+
+
+        static List<string> GetSeparated(string cadena) { 
+            
+            List<string> result = new List<string>();
+            string directory = "";
+            string files = "";
+
+            for (int i = cadena.Length - 1; i > 0; i--) { 
+                if (cadena[i] == '\\'){
+                    directory = cadena.Substring(0, i);
+                    files = cadena.Substring(i + 1);
+                }
+            }
+
+            result.Add(directory);
+            result.Add(files);
+
+            return result;
+
+        }
+
 
         static void Main(string[] args)
         {
@@ -26,7 +48,7 @@ namespace chuerk
 
             Console.ForegroundColor = prevcolor;
 
-            Console.WriteLine("CHUERK v2.0.2  ---  A simple file shredder for Windows by CaptainLainist");
+            Console.WriteLine("CHUERK v2.1.1  ---  A simple file shredder for Windows by CaptainLainist");
 
 
             if (args.Length > 0 && args.Length < 3)
@@ -38,7 +60,10 @@ namespace chuerk
 
                     try
                     {
+
                         RecursiveDelete(new DirectoryInfo(args[1]));
+
+                        
                     }
                     catch (System.IO.IOException)
                     {
@@ -76,6 +101,29 @@ namespace chuerk
                     {
 
                         Console.WriteLine("{0} --- ERROR: file is being used by another process", args[0]);
+                    }
+                    //if it's an absolute route
+                    catch (System.ArgumentException) {
+
+                        //if c:/fdfs/*
+                        if (args[0].Contains('*'))
+                        {
+
+                            List<string> separated = GetSeparated(args[0]);
+                            string directory = separated[0];
+                            string[] files = Directory.GetFiles(directory, separated[1]);
+                            foreach (string f in files)
+                            {
+                                
+                                Shredder(f);
+
+                            }
+                        }
+                        else {
+                            //if C:/gfgfs/aaa.txt
+                            Shredder(args[0]);
+                        }
+                        
                     }
                    
                 }
@@ -141,15 +189,24 @@ namespace chuerk
         //recursive delete
         private static void RecursiveDelete(DirectoryInfo baseDir)
          {
+
             if (!baseDir.Exists)
             {
-                Console.WriteLine("{0} --- ERROR: Folder does not exist", baseDir.FullName );
+                Console.WriteLine("{0} --- ERROR: Folder does not exist", baseDir.FullName);
                 return;
             }
 
+            
+
             foreach (FileInfo file in baseDir.GetFiles()) {
-                Shredder(file.FullName);
+
+                    
+               Shredder(file.FullName);
+                
+                
             }
+
+
 
             foreach (var dir in baseDir.EnumerateDirectories())
             {
