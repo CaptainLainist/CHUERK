@@ -48,7 +48,7 @@ namespace chuerk
 
             Console.ForegroundColor = prevcolor;
 
-            Console.WriteLine("CHUERK v2.1.1  ---  A simple file shredder for Windows by CaptainLainist");
+            Console.WriteLine("CHUERK v2.2.1  ---  A simple file shredder for Windows by CaptainLainist");
 
 
             if (args.Length > 0 && args.Length < 3)
@@ -106,23 +106,38 @@ namespace chuerk
                     catch (System.ArgumentException) {
 
                         //if c:/fdfs/*
-                        if (args[0].Contains('*'))
+
+                        try
                         {
 
                             List<string> separated = GetSeparated(args[0]);
-                            string directory = separated[0];
-                            string[] files = Directory.GetFiles(directory, separated[1]);
-                            foreach (string f in files)
-                            {
-                                
-                                Shredder(f);
+                            string file = separated[1];
 
+                            if (file.Contains('*'))
+                            {
+
+
+                                string directory = separated[0];
+                                string[] files = Directory.GetFiles(directory, file);
+                                foreach (string f in files)
+                                {
+
+                                    Shredder(f);
+
+                                }
                             }
+                            else
+                            {
+                                //if C:/gfgfs/aaa.txt
+                                Shredder(args[0]);
+                            }
+
                         }
-                        else {
-                            //if C:/gfgfs/aaa.txt
-                            Shredder(args[0]);
+                        catch (System.IO.IOException) {
+                            Console.WriteLine("{0} --- ERROR: directory sintax is not correct", args[0]);
                         }
+
+                        
                         
                     }
                    
@@ -149,9 +164,17 @@ namespace chuerk
 
                 try
                 {
-                    File.WriteAllText(file, String.Concat(Enumerable.Repeat("c", (int)fi.Length)));
-                    File.Delete(file);
-                    Console.WriteLine("{0} --- Done", file);
+
+                    if (file.Length <= (1024 * 1024) * 512)
+                    {
+                        File.WriteAllText(file, String.Concat(Enumerable.Repeat("c", (int)fi.Length)));
+                        File.Delete(file);
+                        Console.WriteLine("{0} --- Done", file);
+                    }
+                    else {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    
 
 
                 }
