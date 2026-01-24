@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace chuerk
 {
@@ -12,7 +14,11 @@ namespace chuerk
     {
 
 
-        static List<string> GetSeparated(string cadena) { 
+
+
+
+
+        private static List<string> GetSeparated(string cadena) { 
             
             List<string> result = new List<string>();
             string directory = "";
@@ -33,7 +39,8 @@ namespace chuerk
         }
 
 
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
 
 
@@ -48,7 +55,7 @@ namespace chuerk
 
             Console.ForegroundColor = prevcolor;
 
-            Console.WriteLine("CHUERK v2.2.1  ---  A simple file shredder for Windows by CaptainLainist");
+            Console.WriteLine("CHUERK v2.3.0  ---  A simple file shredder for Windows by CaptainLainist");
 
 
             if (args.Length > 0 && args.Length < 3)
@@ -156,47 +163,53 @@ namespace chuerk
             {
                 FileInfo fi = new FileInfo(file);
 
-                byte[] KB = new byte[1024];
-                byte[] MB = new byte[1024 * 1024];
+                int KB = 1024;
+                int MB = KB * KB;
+                int MB8 = 8 * MB;
 
 
+                byte[] bytes = new byte[MB8];
 
 
-                try
+                for (int i = -1; i <= 1; i++)
                 {
 
-                    if (file.Length <= (1024 * 1024) * 512)
+                    using FileStream fs = new FileStream(
+                        file,
+                        FileMode.Open,
+                        FileAccess.Write,
+                        FileShare.None,
+                        MB,
+                        FileOptions.SequentialScan
+                    );
+
+
+                    fs.Seek(0, SeekOrigin.Begin);
+                    long remaining = fi.Length;
+
+                    while (remaining > 0)
                     {
-                        File.WriteAllText(file, String.Concat(Enumerable.Repeat("c", (int)fi.Length)));
-                        File.Delete(file);
-                        Console.WriteLine("{0} --- Done", file);
+
+                        int toWrite = (int)Math.Min(MB8, remaining);
+                        if (i == 1)
+                        {
+                            RandomNumberGenerator.Fill(bytes.AsSpan(0, toWrite));
+                        }
+                        else {
+                            byte v = i == -1 ? (byte)0xFF : (byte)0x00;
+                            bytes.AsSpan(0, toWrite).Fill(v);
+                        }
+                            
+                        fs.Write(bytes, 0, toWrite);
+                        remaining -= toWrite;
+
                     }
-                    else {
-                        throw new ArgumentOutOfRangeException();
-                    }
-                    
-
-
-                }
-                catch (ArgumentOutOfRangeException e) {
-                    Console.WriteLine("{0} --- File's Too big, it will shred part by part...", file);
-
-                    string ces = String.Concat(Enumerable.Repeat("c", (1024 * 1024)));
-
-                    File.WriteAllText(file, ces);
-
-                    for (int i = 0; i < (fi.Length / (1024 * 1024))-1; i++) {
-                        File.AppendAllText(file, ces);
-                    }
-
-                    File.Delete(file);
-                    Console.WriteLine("{0} --- Done", file);
 
                 }
 
-                
+                File.Delete(file);
+                Console.WriteLine("{0} --- Done", file);
 
-               
 
             }
             else {
@@ -204,7 +217,7 @@ namespace chuerk
             }
         }
 
-        public static bool IsDirectoryEmpty(string path)
+        private  static bool IsDirectoryEmpty(string path)
         {
             return !Directory.EnumerateFileSystemEntries(path).Any();
         }

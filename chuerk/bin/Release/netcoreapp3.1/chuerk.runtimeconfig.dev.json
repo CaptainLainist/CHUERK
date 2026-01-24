@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\nekro\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nekro\\.nuget\\packages"
+    ]
+  }
+}

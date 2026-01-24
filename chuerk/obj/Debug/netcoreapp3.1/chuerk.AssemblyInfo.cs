@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("chuerk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91ab84f85d5541ed91144627d5763fc066cdab73")]
 [assembly: System.Reflection.AssemblyProductAttribute("chuerk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("chuerk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

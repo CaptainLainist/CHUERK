@@ -1,0 +1,14 @@
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.exe
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.deps.json
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.runtimeconfig.json
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.runtimeconfig.dev.json
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.dll
+D:\chuerk\chuerk_gh\CHUERK\chuerk\bin\Release\netcoreapp3.1\chuerk.pdb
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.GeneratedMSBuildEditorConfig.editorconfig
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.AssemblyInfoInputs.cache
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.AssemblyInfo.cs
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.csproj.CoreCompileInputs.cache
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.sourcelink.json
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.dll
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.pdb
+D:\chuerk\chuerk_gh\CHUERK\chuerk\obj\Release\netcoreapp3.1\chuerk.genruntimeconfig.cache
